@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    
+    <data>
+        <variable
+            name="deck"
+            type="com.example.victorlee.fakehearthstone.backend.Deck"/>
+    </data>
+    
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="150px"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/deckSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:text="@{Integer.toString(deck.numOfCardsInDeck) + ` cards in deck`}"/>
+
+        <TextView
+            android:id="@+id/deck"
+            android:layout_width="match_parent"
+            android:layout_height="180px"
+            android:text="Deck"
+            android:textSize="30px"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:background="@drawable/square_border"/>
+    </LinearLayout>
+    
+</layout>

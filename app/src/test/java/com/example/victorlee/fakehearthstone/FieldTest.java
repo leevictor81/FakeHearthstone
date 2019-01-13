@@ -1,8 +1,9 @@
 package com.example.victorlee.fakehearthstone;
 
-import com.example.victorlee.fakehearthstone.Cards.Monsters.BaseMonster;
-import com.example.victorlee.fakehearthstone.Exceptions.FieldMaxException;
-import com.example.victorlee.fakehearthstone.Exceptions.InvalidIndex;
+import com.example.victorlee.fakehearthstone.backend.Cards.Monsters.BaseMonster;
+import com.example.victorlee.fakehearthstone.backend.Exceptions.FieldMaxException;
+import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
+import com.example.victorlee.fakehearthstone.backend.Field;
 
 import org.junit.Before;
 import org.junit.Test;

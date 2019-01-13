@@ -1,18 +1,20 @@
 package com.example.victorlee.fakehearthstone;
 
-import com.example.victorlee.fakehearthstone.Cards.Card;
-import com.example.victorlee.fakehearthstone.Cards.Effects.Aoe;
-import com.example.victorlee.fakehearthstone.Cards.Effects.Banish;
-import com.example.victorlee.fakehearthstone.Cards.Effects.Disenchant;
-import com.example.victorlee.fakehearthstone.Cards.Effects.Effect;
-import com.example.victorlee.fakehearthstone.Cards.Effects.RaiseDead;
-import com.example.victorlee.fakehearthstone.Cards.Effects.SingleTarget;
-import com.example.victorlee.fakehearthstone.Cards.Effects.Summon;
-import com.example.victorlee.fakehearthstone.Cards.Effects.Unsummon;
-import com.example.victorlee.fakehearthstone.Cards.Enchantments.Buff;
-import com.example.victorlee.fakehearthstone.Cards.Monster;
-import com.example.victorlee.fakehearthstone.Cards.Monsters.BaseMonster;
-import com.example.victorlee.fakehearthstone.Cards.Spell;
+import com.example.victorlee.fakehearthstone.backend.Cards.Card;
+import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Aoe;
+import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Banish;
+import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Disenchant;
+import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Effect;
+import com.example.victorlee.fakehearthstone.backend.Cards.Effects.RaiseDead;
+import com.example.victorlee.fakehearthstone.backend.Cards.Effects.SingleTarget;
+import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Summon;
+import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Unsummon;
+import com.example.victorlee.fakehearthstone.backend.Cards.Enchantments.Buff;
+import com.example.victorlee.fakehearthstone.backend.Cards.Monster;
+import com.example.victorlee.fakehearthstone.backend.Cards.Monsters.BaseMonster;
+import com.example.victorlee.fakehearthstone.backend.Cards.Spell;
+import com.example.victorlee.fakehearthstone.backend.GameConsole;
+import com.example.victorlee.fakehearthstone.backend.Player;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -36,9 +38,9 @@ public class GameConsoleTest {
 
     @Before
     public void setUp() {
-        this.player1 = new Player("player1");
+        this.player1 = new Player("player1", null);
         this.player1Deck = new Stack<Card>();
-        this.player2 = new Player("player2");
+        this.player2 = new Player("player2", null);
         this.player2Deck = new Stack<Card>();
         this.gameConsole = new GameConsole(player1, player2, true);
     }

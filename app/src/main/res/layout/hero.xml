@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="player"
+            type="com.example.victorlee.fakehearthstone.backend.Player"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@color/healthRed"
+            android:text="@{Integer.toString(player.life)}"
+            android:textColor="@color/white"
+            android:textSize="40px"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:translationZ="1px"/>
+
+        <TextView
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/attackYellow"
+            android:text="@{Integer.toString(player.attack)}"
+            android:visibility="@{player.attack == 0 ? View.GONE : View.VISIBLE}"
+            android:textColor="@color/black"
+            android:textSize="40px"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:translationZ="1px"/>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@{player.image}"
+            android:translationZ="0px"/>
+    </RelativeLayout>
+</layout>

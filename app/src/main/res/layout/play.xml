@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.example.victorlee.fakehearthstone.R"/>
+        <variable
+            name="gameConsole"
+            type="com.example.victorlee.fakehearthstone.backend.GameConsole"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/play"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--<include-->
+            <!--android:id="@+id/win_screen"-->
+            <!--layout="@layout/win"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--bind:winnerMsg="@{gameConsole.winnerMsg}"-->
+            <!--android:visibility="@{gameConsole.winnerMsg == null ? View.GONE : View.VISIBLE}"-->
+            <!--android:translationZ="5dp"/>-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20px"
+            android:background="@drawable/round_border"
+            android:visibility="@{gameConsole.winnerMsg != null ? View.GONE : View.VISIBLE}">
+
+            <include
+                android:id="@+id/opponentPlayer"
+                layout="@layout/hero"
+                bind:player="@{gameConsole.opponentPlayer}"
+                android:layout_width="200px"
+                android:layout_height="200px"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+
+            <include
+                android:id="@+id/currentPlayer"
+                layout="@layout/hero"
+                bind:player="@{gameConsole.currentPlayer}"
+                android:layout_width="200px"
+                android:layout_height="200px"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:text="End Turn"
+                android:textAllCaps="false"
+                android:onClick="endTurn"/>
+
+            <TextView
+                android:layout_width="120px"
+                android:layout_height="150px"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="20px"/>
+
+            <include
+                android:id="@+id/opponentPlayerDeck"
+                layout="@layout/deck"
+                bind:deck="@{gameConsole.opponentPlayer.deck}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20px"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"/>
+
+            <include
+                android:id="@+id/currentPlayerDeck"
+                layout="@layout/deck"
+                bind:deck="@{gameConsole.currentPlayer.deck}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20px"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"/>
+
+            <LinearLayout
+                android:id="@+id/currentPlayerHand"
+                android:layout_width="0px"
+                android:layout_height="200px"
+                android:orientation="horizontal"
+                android:layout_toLeftOf="@id/currentPlayer"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginHorizontal="10px">
+
+                <include
+                    layout="@layout/card"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"/>
+
+                <include
+                    layout="@layout/card"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"/>
+
+                <include
+                    layout="@layout/card"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="incrementAttack"
+                android:textAllCaps="false"
+                android:onClick="incrementAttack"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="decrementAttack"
+                android:textAllCaps="false"
+                android:onClick="decrementAttack"/>
+
+            <ImageView
+                android:id="@+id/target"
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:visibility="invisible"
+                android:src="@drawable/target"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>
