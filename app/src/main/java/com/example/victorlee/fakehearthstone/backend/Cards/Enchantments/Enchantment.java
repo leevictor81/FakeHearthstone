@@ -5,21 +5,19 @@ import com.example.victorlee.fakehearthstone.backend.Cards.Monster;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
 import com.example.victorlee.fakehearthstone.backend.Player;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 /**
  * Created by Victor Lee on 9/1/2018.
  */
 
-@Getter
-@NoArgsConstructor
 public abstract class Enchantment extends Monster {
-
-    private Monster component;
+    protected Monster component;
 
     public Enchantment(Monster component) {
         this.component = component;
+    }
+
+    public Enchantment() {
+        super();
     }
 
     @Override
@@ -50,5 +48,10 @@ public abstract class Enchantment extends Monster {
 
     public void addComponent(Monster component) {
         this.component = component;
+    }
+
+    @Override
+    public Monster getComponent() {
+        return component;
     }
 }

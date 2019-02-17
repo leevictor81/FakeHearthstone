@@ -3,8 +3,6 @@ package com.example.victorlee.fakehearthstone.backend.Cards.Effects;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
 import com.example.victorlee.fakehearthstone.backend.Player;
 
-import lombok.Builder;
-
 /**
  * Created by Victor Lee on 9/1/2018.
  */
@@ -12,12 +10,7 @@ import lombok.Builder;
 public class Disenchant extends Effect {
     private int numOfDisenchant;
 
-    @Builder
-    private Disenchant(int numOfDisenchant, int effectCost) {
-        super(effectCost);
-
-        this.numOfDisenchant = numOfDisenchant;
-    }
+    private Disenchant() {}
 
     @Override
     public void activate(Player currentPlayer, Player opponentPlayer) throws InvalidIndex {
@@ -30,5 +23,23 @@ public class Disenchant extends Effect {
         for(int i = 0; i < numOfDisenchant; i++) {
             player.getField().disenchantAMonster(fieldIndex);
         }
+    }
+
+    public static Disenchant builder() {
+        return new Disenchant();
+    }
+
+    public Disenchant numOfDisenchant(int numOfDisenchant) {
+        this.numOfDisenchant = numOfDisenchant;
+        return this;
+    }
+
+    public Disenchant effectCost(int effectCost) {
+        this.cost = effectCost;
+        return this;
+    }
+
+    public Disenchant build() {
+        return this;
     }
 }

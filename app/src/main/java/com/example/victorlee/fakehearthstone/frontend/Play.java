@@ -1,11 +1,8 @@
 package com.example.victorlee.fakehearthstone.frontend;
 
-import android.content.ClipData;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.DragEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 

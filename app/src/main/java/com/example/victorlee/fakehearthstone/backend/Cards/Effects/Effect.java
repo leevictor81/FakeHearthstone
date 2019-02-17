@@ -7,7 +7,7 @@ import com.example.victorlee.fakehearthstone.backend.Player;
  */
 
 public abstract class Effect {
-    private int cost;
+    protected int cost;
 
     public Effect() {
     }

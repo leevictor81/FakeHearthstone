@@ -7,8 +7,6 @@ import com.example.victorlee.fakehearthstone.backend.Field;
 import com.example.victorlee.fakehearthstone.backend.Graveyard;
 import com.example.victorlee.fakehearthstone.backend.Player;
 
-import lombok.Builder;
-
 /**
  * Created by Victor Lee on 8/30/2018.
  */
@@ -17,12 +15,7 @@ public class Aoe extends Effect {
     private int defenseChange;
     private int targets;
 
-    @Builder
-    private Aoe(int defenseChange, int targets, int effectCost) {
-        super(effectCost);
-        this.defenseChange = defenseChange;
-        this.targets = targets;
-    }
+    private Aoe() {}
 
     @Override
     public void activate(Player currentPlayer, Player opponentPlayer) throws InvalidIndex {
@@ -59,5 +52,28 @@ public class Aoe extends Effect {
 
             numOfMonsters--;
         }
+    }
+
+    public static Aoe builder() {
+        return new Aoe();
+    }
+
+    public Aoe defenseChange(int defenseChange) {
+        this.defenseChange = defenseChange;
+        return this;
+    }
+
+    public Aoe targets(int targets) {
+        this.targets = targets;
+        return this;
+    }
+
+    public Aoe effectCost(int effectCost) {
+        this.cost = effectCost;
+        return this;
+    }
+
+    public Aoe build() {
+        return this;
     }
 }

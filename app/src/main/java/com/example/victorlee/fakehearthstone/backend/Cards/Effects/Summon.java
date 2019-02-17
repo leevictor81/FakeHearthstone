@@ -5,24 +5,15 @@ import com.example.victorlee.fakehearthstone.backend.Exceptions.FieldMaxExceptio
 import com.example.victorlee.fakehearthstone.backend.Exceptions.IndexNotNeeded;
 import com.example.victorlee.fakehearthstone.backend.Player;
 
-import lombok.Builder;
-
 /**
  * Created by Victor Lee on 9/1/2018.
  */
 
 public class Summon extends Effect {
-
     private Monster monster;
     private int numOfSummons;
 
-    @Builder
-    private Summon(Monster monster, int numOfSummons, int effectCost) {
-        super(effectCost);
-
-        this.monster = monster;
-        this.numOfSummons = numOfSummons;
-    }
+    private Summon() {}
 
     @Override
     public void activate(Player currentPlayer, Player opponentPlayer)  {
@@ -39,5 +30,28 @@ public class Summon extends Effect {
     public void activate(int fieldIndex, Player player) throws IndexNotNeeded {
         System.out.println("Index not needed");
         throw new IndexNotNeeded();
+    }
+
+    public static Summon builder() {
+        return new Summon();
+    }
+
+    public Summon monster(Monster monster) {
+        this.monster = monster;
+        return this;
+    }
+
+    public Summon numOfSummons(int numOfSummons) {
+        this.numOfSummons = numOfSummons;
+        return this;
+    }
+
+    public Summon effectCost(int effectCost) {
+        this.cost = effectCost;
+        return this;
+    }
+
+    public Summon build() {
+        return this;
     }
 }

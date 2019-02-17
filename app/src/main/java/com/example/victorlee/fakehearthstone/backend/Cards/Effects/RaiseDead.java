@@ -5,22 +5,14 @@ import com.example.victorlee.fakehearthstone.backend.Exceptions.FieldMaxExceptio
 import com.example.victorlee.fakehearthstone.backend.Exceptions.IndexNotNeeded;
 import com.example.victorlee.fakehearthstone.backend.Player;
 
-import lombok.Builder;
-
 /**
  * Created by Victor Lee on 9/1/2018.
  */
 
 public class RaiseDead extends Effect {
-
     private int numOfRaises;
 
-    @Builder
-    private RaiseDead(int numOfRaises, int effectCost) {
-        super(effectCost);
-
-        this.numOfRaises = numOfRaises;
-    }
+    private RaiseDead() {}
 
     @Override
     public void activate(Player currentPlayer, Player opponentPlayer)  {
@@ -39,5 +31,23 @@ public class RaiseDead extends Effect {
     public void activate(int fieldIndex, Player player) throws IndexNotNeeded {
         System.out.println("Index not needed");
         throw new IndexNotNeeded();
+    }
+
+    public static RaiseDead builder() {
+        return new RaiseDead();
+    }
+
+    public RaiseDead numOfRaises(int numOfRaises) {
+        this.numOfRaises = numOfRaises;
+        return this;
+    }
+
+    public RaiseDead effectCost(int effectCost) {
+        this.cost = effectCost;
+        return this;
+    }
+
+    public RaiseDead build() {
+        return this;
     }
 }

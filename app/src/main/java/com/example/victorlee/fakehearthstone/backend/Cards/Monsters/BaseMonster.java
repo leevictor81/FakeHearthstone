@@ -17,7 +17,7 @@ public class BaseMonster extends Monster {
     private Effect effect;
     private boolean canAttack = true;
 
-    public BaseMonster() {}
+    private BaseMonster() {}
 
     @Override
     public int getAttack() {

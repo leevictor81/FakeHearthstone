@@ -10,15 +10,10 @@ import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.NoCardsLeft;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.NotEnoughMana;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Created by Victor Lee on 6/16/2018.
  */
 
-@Getter
-@Setter
 public class Player extends BaseObservable {
     private Deck deck;
     private Hand hand;
@@ -120,5 +115,45 @@ public class Player extends BaseObservable {
             throw new NotEnoughMana();
         }
         return cost;
+    }
+
+    public Deck getDeck() {
+        return deck;
+    }
+
+    public Hand getHand() {
+        return hand;
+    }
+
+    public Field getField() {
+        return field;
+    }
+
+    public Graveyard getGraveyard() {
+        return graveyard;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isCanAttack() {
+        return canAttack;
+    }
+
+    public Drawable getImage() {
+        return image;
+    }
+
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCanAttack(boolean canAttack) {
+        this.canAttack = canAttack;
     }
 }
