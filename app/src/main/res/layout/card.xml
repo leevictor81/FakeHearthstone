@@ -2,6 +2,7 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!--<data>-->
+        <!--<import type="android.view.View" />-->
         <!--<variable-->
             <!--name="card"-->
             <!--type="com.example.victorlee.fakehearthstone.backend.Cards.Spell"/>-->

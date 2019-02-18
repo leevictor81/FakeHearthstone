@@ -5,6 +5,7 @@ import android.databinding.Bindable;
 
 import com.android.databinding.library.baseAdapters.BR;
 import com.example.victorlee.fakehearthstone.backend.Cards.Card;
+import com.example.victorlee.fakehearthstone.backend.Exceptions.HandMaxException;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.NoCardsLeft;
 
 import java.util.Scanner;
@@ -105,7 +106,7 @@ public class GameConsole extends BaseObservable {
         }
     }
 
-    private void initialize(Stack<Card> player1Deck, Stack<Card> player2Deck) throws NoCardsLeft {
+    private void initialize(Stack<Card> player1Deck, Stack<Card> player2Deck) throws NoCardsLeft, HandMaxException {
         currentPlayer.getDeck().initialize(player1Deck);
         opponentPlayer.getDeck().initialize(player2Deck);
 

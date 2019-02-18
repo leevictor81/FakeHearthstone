@@ -1,6 +1,11 @@
 package com.example.victorlee.fakehearthstone.backend;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+import com.android.databinding.library.baseAdapters.BR;
 import com.example.victorlee.fakehearthstone.backend.Cards.Card;
+import com.example.victorlee.fakehearthstone.backend.Exceptions.HandMaxException;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
 
 import java.util.ArrayList;
@@ -10,7 +15,9 @@ import java.util.List;
  * Created by Victor Lee on 7/29/2018.
  */
 
-public class Hand {
+public class Hand extends BaseObservable {
+    private static final int MAX_CARDS_IN_HAND = 6;
+
     private List<Card> hand;
     private int numOfCardsInHand;
 
@@ -19,8 +26,14 @@ public class Hand {
         this.numOfCardsInHand = 0;
     }
 
+    @Bindable
     public int getNumOfCardsInHand() {
         return numOfCardsInHand;
+    }
+
+    public void setNumOfCardsInHand(int numOfCardsInHand) {
+        this.numOfCardsInHand = numOfCardsInHand;
+        notifyPropertyChanged(BR.numOfCardsInDeck);
     }
 
     public Card getCard(int handIndex) throws InvalidIndex {
@@ -39,11 +52,17 @@ public class Hand {
         }
 
         hand.remove(handIndex-1);
-        numOfCardsInHand--;
+        setNumOfCardsInHand(numOfCardsInHand-1);
+
     }
 
-    public void draw(Card card) {
+    public void draw(Card card) throws HandMaxException {
+        if (numOfCardsInHand >= MAX_CARDS_IN_HAND) {
+            System.out.println("Already max amount of cards in hand. Can't draw.");
+            throw new HandMaxException();
+        }
+
         hand.add(card);
-        numOfCardsInHand++;
+        setNumOfCardsInHand(numOfCardsInHand+1);
     }
 }

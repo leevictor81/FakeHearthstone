@@ -1,6 +1,7 @@
 package com.example.victorlee.fakehearthstone.backend.Cards.Effects;
 
 import com.example.victorlee.fakehearthstone.backend.Cards.Card;
+import com.example.victorlee.fakehearthstone.backend.Exceptions.HandMaxException;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
 import com.example.victorlee.fakehearthstone.backend.Player;
 
@@ -19,7 +20,7 @@ public class Unsummon extends Effect {
     }
 
     @Override
-    public void activate(int fieldIndex, Player player) throws InvalidIndex {
+    public void activate(int fieldIndex, Player player) throws InvalidIndex, HandMaxException {
         Card removed = player.getField().removeFromField(fieldIndex);
         player.getHand().draw(removed);
     }

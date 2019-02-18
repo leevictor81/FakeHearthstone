@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="hand"
+            type="com.example.victorlee.fakehearthstone.backend.Hand"/>
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="10px">
+
+        <include
+            layout="@layout/card"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:visibility="@{hand.numOfCardsInHand >= 1 ? View.VISIBLE : View.GONE}"/>
+
+        <include
+            layout="@layout/card"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:visibility="@{hand.numOfCardsInHand >= 2 ? View.VISIBLE : View.GONE}"/>
+
+        <include
+            layout="@layout/card"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:visibility="@{hand.numOfCardsInHand >= 3 ? View.VISIBLE : View.GONE}"/>
+
+        <include
+            layout="@layout/card"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:visibility="@{hand.numOfCardsInHand >= 4 ? View.VISIBLE : View.GONE}"/>
+
+        <include
+            layout="@layout/card"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:visibility="@{hand.numOfCardsInHand >= 5 ? View.VISIBLE : View.GONE}"/>
+
+        <include
+            layout="@layout/card"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:visibility="@{hand.numOfCardsInHand >= 6 ? View.VISIBLE : View.GONE}"/>
+
+    </LinearLayout>
+</layout>

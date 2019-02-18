@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 
 import com.android.databinding.library.baseAdapters.BR;
 import com.example.victorlee.fakehearthstone.backend.Cards.Card;
+import com.example.victorlee.fakehearthstone.backend.Exceptions.HandMaxException;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.NoCardsLeft;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.NotEnoughMana;
@@ -97,7 +98,7 @@ public class Player extends BaseObservable {
         field.monsterGetsAttacked(fieldIndex, damage);
     }
 
-    public void draw(int numOfCardsToDraw) throws NoCardsLeft {
+    public void draw(int numOfCardsToDraw) throws NoCardsLeft, HandMaxException {
         while (numOfCardsToDraw > 0) {
             Card card = deck.draw();
             hand.draw(card);
