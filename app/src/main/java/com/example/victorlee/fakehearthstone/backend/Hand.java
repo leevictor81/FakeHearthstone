@@ -4,7 +4,7 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
 import com.android.databinding.library.baseAdapters.BR;
-import com.example.victorlee.fakehearthstone.backend.Cards.Card;
+import com.example.victorlee.fakehearthstone.backend.cards.Card;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.HandMaxException;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
 
@@ -36,10 +36,9 @@ public class Hand extends BaseObservable {
         notifyPropertyChanged(BR.numOfCardsInDeck);
     }
 
-    public Card getCard(int handIndex) throws InvalidIndex {
+    public Card getCard(int handIndex) {
         if (handIndex > numOfCardsInHand) {
             System.out.println("Invalid hand index.");
-            throw new InvalidIndex();
         }
 
         return hand.get(handIndex-1);

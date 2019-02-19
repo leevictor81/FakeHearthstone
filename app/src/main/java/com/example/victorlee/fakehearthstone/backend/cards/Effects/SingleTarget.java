@@ -1,4 +1,4 @@
-package com.example.victorlee.fakehearthstone.backend.Cards.Effects;
+package com.example.victorlee.fakehearthstone.backend.cards.Effects;
 
 import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
 import com.example.victorlee.fakehearthstone.backend.Player;

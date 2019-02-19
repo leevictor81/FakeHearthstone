@@ -1,8 +1,7 @@
-package com.example.victorlee.fakehearthstone.backend.Cards.Monsters;
+package com.example.victorlee.fakehearthstone.backend.cards.Monsters;
 
-import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Effect;
-import com.example.victorlee.fakehearthstone.backend.Cards.Monster;
-import com.example.victorlee.fakehearthstone.backend.Cards.Spell;
+import com.example.victorlee.fakehearthstone.backend.cards.Effects.Effect;
+import com.example.victorlee.fakehearthstone.backend.cards.Monster;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.FieldMaxException;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.IndexNotNeeded;
 import com.example.victorlee.fakehearthstone.backend.Player;
@@ -66,6 +65,16 @@ public class BaseMonster extends Monster {
 
     public BaseMonster canAttack(boolean canAttack) {
         this.canAttack = canAttack;
+        return this;
+    }
+
+    public BaseMonster name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public BaseMonster cost(int cost) {
+        this.cost = cost;
         return this;
     }
 

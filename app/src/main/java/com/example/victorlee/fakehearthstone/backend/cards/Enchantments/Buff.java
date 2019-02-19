@@ -1,6 +1,6 @@
-package com.example.victorlee.fakehearthstone.backend.Cards.Enchantments;
+package com.example.victorlee.fakehearthstone.backend.cards.Enchantments;
 
-import com.example.victorlee.fakehearthstone.backend.Cards.Monster;
+import com.example.victorlee.fakehearthstone.backend.cards.Monster;
 
 /**
  * Created by Victor Lee on 9/1/2018.

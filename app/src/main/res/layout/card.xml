@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--<data>-->
-        <!--<import type="android.view.View" />-->
-        <!--<variable-->
-            <!--name="card"-->
-            <!--type="com.example.victorlee.fakehearthstone.backend.Cards.Spell"/>-->
-    <!--</data>-->
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="card"
+            type="com.example.victorlee.fakehearthstone.backend.cards.Card"/>
+    </data>
 
     <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="150px"
         android:layout_height="200px"
         android:background="@drawable/square_border">
-        
+
         <TextView
             android:id="@+id/cost"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintWidth_percent="0.12"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintBottom_toTopOf="@id/name"
             android:background="@color/manaBlue"
             android:gravity="center"
-            android:text="3"
+            android:text="@{Integer.toString(card.cost)}"
+            android:textColor="@color/white"
             android:textSize="16px"
-            android:textColor="@color/white"/>
+            app:layout_constraintBottom_toTopOf="@id/name"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.12" />
 
         <TextView
             android:id="@+id/name"
@@ -33,7 +34,7 @@
             android:layout_height="0dp"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintTop_toBottomOf="@+id/cost"
-            android:text="Air elemental"
+            android:text="@{card.name}"
             android:textSize="18px"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -42,36 +43,37 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.3"
             android:src="@drawable/air_elemental"
+            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintTop_toBottomOf="@+id/name"/>
 
         <TextView
             android:id="@+id/attack"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintWidth_percent="0.12"
-            app:layout_constraintHeight_percent="0.10"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:background="@color/attackYellow"
             android:text="5"
             android:textSize="16px"
             android:textColor="@color/black"
-            android:gravity="center"/>
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintWidth_percent="0.12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHeight_percent="0.10" />
 
         <TextView
             android:id="@+id/effect"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:text="Summon up to three 1/1 air elemental"
+            android:textSize="14px"
+            android:textColor="@color/black"
+            android:gravity="center"
             app:layout_constraintWidth_percent="0.75"
             app:layout_constraintHeight_percent="0.35"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/health"
-            app:layout_constraintLeft_toRightOf="@+id/attack"
-            android:text="Summon up to three 1/1 air elemental"
-            android:textSize="14px"
-            android:textColor="@color/black"
-            android:gravity="center"/>
+            app:layout_constraintLeft_toRightOf="@+id/attack"/>
 
         <TextView
             android:id="@+id/health"

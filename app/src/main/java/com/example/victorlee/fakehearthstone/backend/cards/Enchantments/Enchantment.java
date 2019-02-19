@@ -1,7 +1,7 @@
-package com.example.victorlee.fakehearthstone.backend.Cards.Enchantments;
+package com.example.victorlee.fakehearthstone.backend.cards.Enchantments;
 
-import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Effect;
-import com.example.victorlee.fakehearthstone.backend.Cards.Monster;
+import com.example.victorlee.fakehearthstone.backend.cards.Effects.Effect;
+import com.example.victorlee.fakehearthstone.backend.cards.Monster;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
 import com.example.victorlee.fakehearthstone.backend.Player;
 

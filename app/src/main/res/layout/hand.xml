@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
         <import type="android.view.View" />
@@ -17,36 +17,42 @@
 
         <include
             layout="@layout/card"
+            bind:card="@{hand.numOfCardsInHand >= 1 ? hand.getCard(1) : null}"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:visibility="@{hand.numOfCardsInHand >= 1 ? View.VISIBLE : View.GONE}"/>
 
         <include
             layout="@layout/card"
+            bind:card="@{hand.numOfCardsInHand >= 2 ? hand.getCard(2) : null}"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:visibility="@{hand.numOfCardsInHand >= 2 ? View.VISIBLE : View.GONE}"/>
 
         <include
             layout="@layout/card"
+            bind:card="@{hand.numOfCardsInHand >= 3 ? hand.getCard(3) : null}"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:visibility="@{hand.numOfCardsInHand >= 3 ? View.VISIBLE : View.GONE}"/>
 
         <include
             layout="@layout/card"
+            bind:card="@{hand.numOfCardsInHand >= 4 ? hand.getCard(4) : null}"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:visibility="@{hand.numOfCardsInHand >= 4 ? View.VISIBLE : View.GONE}"/>
 
         <include
             layout="@layout/card"
+            bind:card="@{hand.numOfCardsInHand >= 5 ? hand.getCard(5) : null}"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:visibility="@{hand.numOfCardsInHand >= 5 ? View.VISIBLE : View.GONE}"/>
 
         <include
             layout="@layout/card"
+            bind:card="@{hand.numOfCardsInHand >= 6 ? hand.getCard(6) : null}"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:visibility="@{hand.numOfCardsInHand >= 6 ? View.VISIBLE : View.GONE}"/>

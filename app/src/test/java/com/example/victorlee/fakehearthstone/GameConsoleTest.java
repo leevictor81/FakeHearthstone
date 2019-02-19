@@ -1,18 +1,18 @@
 package com.example.victorlee.fakehearthstone;
 
-import com.example.victorlee.fakehearthstone.backend.Cards.Card;
-import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Aoe;
-import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Banish;
-import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Disenchant;
-import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Effect;
-import com.example.victorlee.fakehearthstone.backend.Cards.Effects.RaiseDead;
-import com.example.victorlee.fakehearthstone.backend.Cards.Effects.SingleTarget;
-import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Summon;
-import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Unsummon;
-import com.example.victorlee.fakehearthstone.backend.Cards.Enchantments.Buff;
-import com.example.victorlee.fakehearthstone.backend.Cards.Monster;
-import com.example.victorlee.fakehearthstone.backend.Cards.Monsters.BaseMonster;
-import com.example.victorlee.fakehearthstone.backend.Cards.Spell;
+import com.example.victorlee.fakehearthstone.backend.cards.Card;
+import com.example.victorlee.fakehearthstone.backend.cards.Effects.Aoe;
+import com.example.victorlee.fakehearthstone.backend.cards.Effects.Banish;
+import com.example.victorlee.fakehearthstone.backend.cards.Effects.Disenchant;
+import com.example.victorlee.fakehearthstone.backend.cards.Effects.Effect;
+import com.example.victorlee.fakehearthstone.backend.cards.Effects.RaiseDead;
+import com.example.victorlee.fakehearthstone.backend.cards.Effects.SingleTarget;
+import com.example.victorlee.fakehearthstone.backend.cards.Effects.Summon;
+import com.example.victorlee.fakehearthstone.backend.cards.Effects.Unsummon;
+import com.example.victorlee.fakehearthstone.backend.cards.Enchantments.Buff;
+import com.example.victorlee.fakehearthstone.backend.cards.Monster;
+import com.example.victorlee.fakehearthstone.backend.cards.Monsters.BaseMonster;
+import com.example.victorlee.fakehearthstone.backend.cards.Spell;
 import com.example.victorlee.fakehearthstone.backend.GameConsole;
 import com.example.victorlee.fakehearthstone.backend.Player;
 

@@ -1,6 +1,6 @@
-package com.example.victorlee.fakehearthstone.backend.Cards.Effects;
+package com.example.victorlee.fakehearthstone.backend.cards.Effects;
 
-import com.example.victorlee.fakehearthstone.backend.Cards.Monster;
+import com.example.victorlee.fakehearthstone.backend.cards.Monster;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.FieldMaxException;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.IndexNotNeeded;
 import com.example.victorlee.fakehearthstone.backend.Player;
@@ -9,22 +9,21 @@ import com.example.victorlee.fakehearthstone.backend.Player;
  * Created by Victor Lee on 9/1/2018.
  */
 
-public class RaiseDead extends Effect {
-    private int numOfRaises;
+public class Summon extends Effect {
+    private Monster monster;
+    private int numOfSummons;
 
-    private RaiseDead() {}
+    private Summon() {}
 
     @Override
     public void activate(Player currentPlayer, Player opponentPlayer)  {
-        for (int i = 0; i < numOfRaises; i++) {
-            Monster monster = currentPlayer.getGraveyard().removeFromGraveyard();
+        for (int i = 0; i < numOfSummons; i++) {
             try {
                 currentPlayer.getField().summon(monster);
             } catch (FieldMaxException e) {
                 return;
             }
         }
-
     }
 
     @Override
@@ -33,21 +32,26 @@ public class RaiseDead extends Effect {
         throw new IndexNotNeeded();
     }
 
-    public static RaiseDead builder() {
-        return new RaiseDead();
+    public static Summon builder() {
+        return new Summon();
     }
 
-    public RaiseDead numOfRaises(int numOfRaises) {
-        this.numOfRaises = numOfRaises;
+    public Summon monster(Monster monster) {
+        this.monster = monster;
         return this;
     }
 
-    public RaiseDead effectCost(int effectCost) {
+    public Summon numOfSummons(int numOfSummons) {
+        this.numOfSummons = numOfSummons;
+        return this;
+    }
+
+    public Summon effectCost(int effectCost) {
         this.cost = effectCost;
         return this;
     }
 
-    public RaiseDead build() {
+    public Summon build() {
         return this;
     }
 }

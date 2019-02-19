@@ -1,7 +1,7 @@
 package com.example.victorlee.fakehearthstone.backend;
 
-import com.example.victorlee.fakehearthstone.backend.Cards.Enchantments.Enchantment;
-import com.example.victorlee.fakehearthstone.backend.Cards.Monster;
+import com.example.victorlee.fakehearthstone.backend.cards.Enchantments.Enchantment;
+import com.example.victorlee.fakehearthstone.backend.cards.Monster;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.FieldMaxException;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
 

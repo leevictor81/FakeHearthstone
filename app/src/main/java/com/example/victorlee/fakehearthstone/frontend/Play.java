@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.victorlee.fakehearthstone.R;
-import com.example.victorlee.fakehearthstone.backend.Cards.Card;
-import com.example.victorlee.fakehearthstone.backend.Cards.Monsters.BaseMonster;
+import com.example.victorlee.fakehearthstone.backend.cards.Card;
+import com.example.victorlee.fakehearthstone.backend.cards.Monsters.BaseMonster;
 import com.example.victorlee.fakehearthstone.backend.GameConsole;
 import com.example.victorlee.fakehearthstone.backend.Player;
 import com.example.victorlee.fakehearthstone.databinding.PlayBinding;
@@ -45,11 +45,15 @@ public class Play extends AppCompatActivity {
                     .attack(5)
                     .defense(4)
                     .canAttack(true)
+                    .name("Monster1")
+                    .cost(2)
                     .build();
             Card monster2 = BaseMonster.builder()
                     .attack(4)
                     .defense(4)
                     .canAttack(true)
+                    .name("Monster2")
+                    .cost(3)
                     .build();
 
             currentPlayerDeck.add(monster1);

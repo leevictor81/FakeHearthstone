@@ -5,7 +5,7 @@ import android.databinding.Bindable;
 import android.graphics.drawable.Drawable;
 
 import com.android.databinding.library.baseAdapters.BR;
-import com.example.victorlee.fakehearthstone.backend.Cards.Card;
+import com.example.victorlee.fakehearthstone.backend.cards.Card;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.HandMaxException;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.InvalidIndex;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.NoCardsLeft;

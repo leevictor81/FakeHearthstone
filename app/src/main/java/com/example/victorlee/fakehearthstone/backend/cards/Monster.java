@@ -1,6 +1,6 @@
-package com.example.victorlee.fakehearthstone.backend.Cards;
+package com.example.victorlee.fakehearthstone.backend.cards;
 
-import com.example.victorlee.fakehearthstone.backend.Cards.Effects.Effect;
+import com.example.victorlee.fakehearthstone.backend.cards.Effects.Effect;
 
 /**
  * Created by Victor Lee on 6/17/2018.
