@@ -3,6 +3,7 @@
 
     <data>
         <import type="android.view.View" />
+        <import type="com.example.victorlee.fakehearthstone.backend.cards.monsters.BaseMonster" />
         <variable
             name="card"
             type="com.example.victorlee.fakehearthstone.backend.cards.Card"/>
@@ -52,7 +53,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/attackYellow"
-            android:text="5"
+            android:text="@{card instanceof BaseMonster ? Integer.toString(((BaseMonster)card).attack) : null}"
             android:textSize="16px"
             android:textColor="@color/black"
             android:gravity="center"
@@ -72,11 +73,11 @@
             app:layout_constraintWidth_percent="0.75"
             app:layout_constraintHeight_percent="0.35"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/health"
+            app:layout_constraintRight_toLeftOf="@+id/defense"
             app:layout_constraintLeft_toRightOf="@+id/attack"/>
 
         <TextView
-            android:id="@+id/health"
+            android:id="@+id/defense"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintWidth_percent="0.12"
@@ -84,7 +85,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:background="@color/healthRed"
-            android:text="4"
+            android:text="@{card instanceof BaseMonster ? Integer.toString(((BaseMonster)card).defense) : null}"
             android:textSize="16px"
             android:textColor="@color/white"
             android:gravity="center"/>

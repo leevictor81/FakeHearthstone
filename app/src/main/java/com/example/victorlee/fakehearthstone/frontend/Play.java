@@ -8,7 +8,7 @@ import android.widget.ImageView;
 
 import com.example.victorlee.fakehearthstone.R;
 import com.example.victorlee.fakehearthstone.backend.cards.Card;
-import com.example.victorlee.fakehearthstone.backend.cards.Monsters.BaseMonster;
+import com.example.victorlee.fakehearthstone.backend.cards.monsters.BaseMonster;
 import com.example.victorlee.fakehearthstone.backend.GameConsole;
 import com.example.victorlee.fakehearthstone.backend.Player;
 import com.example.victorlee.fakehearthstone.databinding.PlayBinding;
@@ -36,21 +36,21 @@ public class Play extends AppCompatActivity {
 
         Player currentPlayer = new Player(NAME1, getResources().getDrawable(R.drawable.pepehands));
         Player opponentPlayer = new Player(NAME2, getResources().getDrawable(R.drawable.monkas));
-        gameConsole = new GameConsole(currentPlayer, opponentPlayer, false);
+        gameConsole = new GameConsole(currentPlayer, opponentPlayer, true);
 
         Stack<Card> currentPlayerDeck = new Stack<>();
         Stack<Card> opponentPlayerDeck = new Stack<>();
         for (int i = 0; i < 10; i++) {
-            Card monster1 = BaseMonster.builder()
+            BaseMonster monster1 = BaseMonster.builder()
                     .attack(5)
                     .defense(4)
                     .canAttack(true)
                     .name("Monster1")
                     .cost(2)
                     .build();
-            Card monster2 = BaseMonster.builder()
+            BaseMonster monster2 = BaseMonster.builder()
                     .attack(4)
-                    .defense(4)
+                    .defense(3)
                     .canAttack(true)
                     .name("Monster2")
                     .cost(3)

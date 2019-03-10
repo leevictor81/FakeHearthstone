@@ -11,7 +11,7 @@ import com.example.victorlee.fakehearthstone.backend.cards.Effects.Summon;
 import com.example.victorlee.fakehearthstone.backend.cards.Effects.Unsummon;
 import com.example.victorlee.fakehearthstone.backend.cards.Enchantments.Buff;
 import com.example.victorlee.fakehearthstone.backend.cards.Monster;
-import com.example.victorlee.fakehearthstone.backend.cards.Monsters.BaseMonster;
+import com.example.victorlee.fakehearthstone.backend.cards.monsters.BaseMonster;
 import com.example.victorlee.fakehearthstone.backend.cards.Spell;
 import com.example.victorlee.fakehearthstone.backend.GameConsole;
 import com.example.victorlee.fakehearthstone.backend.Player;

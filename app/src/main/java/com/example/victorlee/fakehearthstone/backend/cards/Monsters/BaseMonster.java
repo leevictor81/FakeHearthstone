@@ -1,4 +1,7 @@
-package com.example.victorlee.fakehearthstone.backend.cards.Monsters;
+package com.example.victorlee.fakehearthstone.backend.cards.monsters;
+
+import android.databinding.Bindable;
+import com.android.databinding.library.baseAdapters.BR;
 
 import com.example.victorlee.fakehearthstone.backend.cards.Effects.Effect;
 import com.example.victorlee.fakehearthstone.backend.cards.Monster;
@@ -18,12 +21,12 @@ public class BaseMonster extends Monster {
 
     private BaseMonster() {}
 
-    @Override
+    @Override @Bindable
     public int getAttack() {
         return attack;
     }
 
-    @Override
+    @Override @Bindable
     public int getDefense() {
         return defense;
     }
