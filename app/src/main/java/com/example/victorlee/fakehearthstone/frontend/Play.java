@@ -47,6 +47,7 @@ public class Play extends AppCompatActivity {
                     .canAttack(true)
                     .name("Monster1")
                     .cost(2)
+                    .description("Summon up to three 1/1 air elemental")
                     .build();
             BaseMonster monster2 = BaseMonster.builder()
                     .attack(4)

@@ -72,12 +72,17 @@ public class BaseMonster extends Monster {
     }
 
     public BaseMonster name(String name) {
-        this.name = name;
+        setName(name);
         return this;
     }
 
     public BaseMonster cost(int cost) {
-        this.cost = cost;
+        setCost(cost);
+        return this;
+    }
+
+    public BaseMonster description(String description) {
+        setDescription(description);
         return this;
     }
 

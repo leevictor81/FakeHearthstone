@@ -11,8 +11,8 @@ import com.example.victorlee.fakehearthstone.backend.Player;
  */
 
 public abstract class Card extends BaseObservable {
-    protected String name;
-    protected int cost;
+    private String name;
+    private int cost;
     private String description;
     private boolean firstTurn;
 
@@ -37,5 +37,15 @@ public abstract class Card extends BaseObservable {
     public void setCost(int cost) {
         this.cost = cost;
         notifyPropertyChanged(BR.cost);
+    }
+
+    @Bindable
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+        notifyPropertyChanged(BR.description);
     }
 }
