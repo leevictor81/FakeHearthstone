@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.victorlee.fakehearthstone.R;
+import com.example.victorlee.fakehearthstone.backend.cards.AllCards;
 import com.example.victorlee.fakehearthstone.backend.cards.Card;
-import com.example.victorlee.fakehearthstone.backend.cards.monsters.BaseMonster;
 import com.example.victorlee.fakehearthstone.backend.GameConsole;
 import com.example.victorlee.fakehearthstone.backend.Player;
 import com.example.victorlee.fakehearthstone.databinding.PlayBinding;
@@ -17,6 +17,7 @@ import com.example.victorlee.fakehearthstone.frontend.Listeners.HeroDragListener
 import com.example.victorlee.fakehearthstone.frontend.Listeners.HeroTouchListener;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -40,26 +41,12 @@ public class Play extends AppCompatActivity {
 
         Stack<Card> currentPlayerDeck = new Stack<>();
         Stack<Card> opponentPlayerDeck = new Stack<>();
-        for (int i = 0; i < 10; i++) {
-            BaseMonster monster1 = BaseMonster.builder()
-                    .attack(5)
-                    .defense(4)
-                    .canAttack(true)
-                    .name("Monster1")
-                    .cost(2)
-                    .description("Summon up to three 1/1 air elemental")
-                    .build();
-            BaseMonster monster2 = BaseMonster.builder()
-                    .attack(4)
-                    .defense(3)
-                    .canAttack(true)
-                    .name("Monster2")
-                    .cost(3)
-                    .build();
 
-            currentPlayerDeck.add(monster1);
-            opponentPlayerDeck.add(monster2);
-        }
+        Map<String, Card> allCards = AllCards.getAllCards();
+        addToDeck(allCards, currentPlayerDeck);
+        addToDeck(allCards, opponentPlayerDeck);
+        currentPlayerDeck.push(allCards.get("Disenchant"));
+
         gameConsole.start(currentPlayerDeck, opponentPlayerDeck);
 
         binding = DataBindingUtil.setContentView(this, R.layout.play);
@@ -68,6 +55,21 @@ public class Play extends AppCompatActivity {
         setFullScreen();
         setUpHeroAttacking();
         setUpDeckHover();
+    }
+
+    private void addToDeck(Map<String, Card> allCards, Stack<Card> deck) {
+        deck.push(allCards.get("Air Elemental"));
+        deck.push(allCards.get("Fireball"));
+        deck.push(allCards.get("Earth Elemental"));
+        deck.push(allCards.get("Potion Seller"));
+        deck.push(allCards.get("Banish"));
+        deck.push(allCards.get("Fire Elemental"));
+        deck.push(allCards.get("Novice Pyromancer"));
+        deck.push(allCards.get("Apprentice Summoner"));
+        deck.push(allCards.get("Unsummon"));
+        deck.push(allCards.get("Disenchant"));
+        deck.push(allCards.get("RaiseDead"));
+        deck.push(allCards.get("Blizzard"));
     }
 
     @Override

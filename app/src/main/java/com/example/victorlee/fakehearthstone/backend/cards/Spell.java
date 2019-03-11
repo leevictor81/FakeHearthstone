@@ -30,6 +30,21 @@ public class Spell extends Card {
         return new Spell();
     }
 
+    public Spell name(String name) {
+        setName(name);
+        return this;
+    }
+
+    public Spell cost(int cost) {
+        setCost(cost);
+        return this;
+    }
+
+    public Spell description(String description) {
+        setDescription(description);
+        return this;
+    }
+
     public Spell effect(Effect effect) {
         this.effect = effect;
         return this;

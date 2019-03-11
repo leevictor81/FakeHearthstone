@@ -12,6 +12,7 @@ import com.example.victorlee.fakehearthstone.backend.Player;
  */
 
 public class Aoe extends Effect {
+    private int attackChange;
     private int defenseChange;
     private int targets;
 
@@ -56,6 +57,11 @@ public class Aoe extends Effect {
 
     public static Aoe builder() {
         return new Aoe();
+    }
+
+    public Aoe attackChange(int attackChange) {
+        this.attackChange = attackChange;
+        return this;
     }
 
     public Aoe defenseChange(int defenseChange) {
