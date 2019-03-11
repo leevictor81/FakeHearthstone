@@ -109,18 +109,20 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
+                android:layout_toRightOf="@id/currentPlayer"
+                android:layout_toLeftOf="@id/currentPlayerDeck"
+                android:layout_alignParentBottom="true">
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="incrementAttack"
+                    android:text="attack++"
                     android:textAllCaps="false"
                     android:onClick="incrementAttack"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="decrementAttack"
+                    android:text="attack--"
                     android:textAllCaps="false"
                     android:onClick="decrementAttack"/>
             </LinearLayout>
