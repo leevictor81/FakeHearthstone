@@ -20,11 +20,23 @@ public class GameConsole extends BaseObservable {
     private Player opponentPlayer;
     private boolean testing;
     private String winnerMsg = null;
+    private Card cardPreview = null;
 
     public GameConsole(Player currentPlayer, Player opponentPlayer, boolean testing) {
         this.currentPlayer = currentPlayer;
         this.opponentPlayer = opponentPlayer;
         this.testing = testing;
+    }
+
+    @Bindable
+    public Card getCardPreview() {
+        return this.cardPreview;
+    }
+
+    public void setCardPreview(Card cardPreview) {
+        this.cardPreview = cardPreview;
+        notifyPropertyChanged(BR.cardPreview);
+        return;
     }
 
     @Bindable

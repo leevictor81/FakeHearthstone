@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.victorlee.fakehearthstone.R;
 import com.example.victorlee.fakehearthstone.backend.cards.AllCards;
@@ -12,6 +13,7 @@ import com.example.victorlee.fakehearthstone.backend.cards.Card;
 import com.example.victorlee.fakehearthstone.backend.GameConsole;
 import com.example.victorlee.fakehearthstone.backend.Player;
 import com.example.victorlee.fakehearthstone.databinding.PlayBinding;
+import com.example.victorlee.fakehearthstone.frontend.Listeners.CardHoverListener;
 import com.example.victorlee.fakehearthstone.frontend.Listeners.DeckHoverListener;
 import com.example.victorlee.fakehearthstone.frontend.Listeners.HeroDragListener;
 import com.example.victorlee.fakehearthstone.frontend.Listeners.HeroTouchListener;
@@ -45,7 +47,6 @@ public class Play extends AppCompatActivity {
         Map<String, Card> allCards = AllCards.getAllCards();
         addToDeck(allCards, currentPlayerDeck);
         addToDeck(allCards, opponentPlayerDeck);
-        currentPlayerDeck.push(allCards.get("Disenchant"));
 
         gameConsole.start(currentPlayerDeck, opponentPlayerDeck);
 
@@ -55,6 +56,7 @@ public class Play extends AppCompatActivity {
         setFullScreen();
         setUpHeroAttacking();
         setUpDeckHover();
+        setUpCardPreview();
     }
 
     private void addToDeck(Map<String, Card> allCards, Stack<Card> deck) {
@@ -93,6 +95,14 @@ public class Play extends AppCompatActivity {
         ImageView target = findViewById(R.id.target);
         findViewById(R.id.currentPlayer).setOnTouchListener(new HeroTouchListener(gameConsole, target));
         findViewById(R.id.opponentPlayer).setOnDragListener(new HeroDragListener(gameConsole));
+    }
+
+    private void setUpCardPreview() {
+        LinearLayout hand = findViewById(R.id.currentPlayerHand);
+        for (int i = 0; i < hand.getChildCount(); i++) {
+            View card = hand.getChildAt(i);
+            card.setOnTouchListener(new CardHoverListener(findViewById(R.id.play), gameConsole, i+1));
+        }
     }
 
     public void endTurn(View view) {

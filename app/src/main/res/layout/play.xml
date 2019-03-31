@@ -106,6 +106,16 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"/>
 
+            <include
+                android:id="@+id/cardPreview"
+                layout="@layout/card"
+                bind:card="@{gameConsole.cardPreview}"
+                android:layout_width="275px"
+                android:layout_height="450px"
+                android:visibility="invisible"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"/>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
