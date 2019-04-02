@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="field"
+            type="com.example.victorlee.fakehearthstone.backend.Field"/>
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/square_border">
+
+        <include
+            layout="@layout/card"
+            bind:card="@{field.numOfMonsters >= 1 ? field.getMonster(1) : null}"
+            bind:showCard="@{true}"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="5px"
+            android:layout_marginHorizontal="10px"
+            android:visibility="@{field.numOfMonsters >= 1 ? View.VISIBLE : View.GONE}"/>
+
+        <include
+            layout="@layout/card"
+            bind:card="@{field.numOfMonsters >= 2 ? field.getMonster(2) : null}"
+            bind:showCard="@{true}"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="5px"
+            android:layout_marginHorizontal="10px"
+            android:visibility="@{field.numOfMonsters >= 2 ? View.VISIBLE : View.GONE}"/>
+
+        <include
+            layout="@layout/card"
+            bind:card="@{field.numOfMonsters >= 3 ? field.getMonster(3) : null}"
+            bind:showCard="@{true}"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="5px"
+            android:layout_marginHorizontal="10px"
+            android:visibility="@{field.numOfMonsters >= 3 ? View.VISIBLE : View.GONE}"/>
+
+        <include
+            layout="@layout/card"
+            bind:card="@{field.numOfMonsters >= 4 ? field.getMonster(4) : null}"
+            bind:showCard="@{true}"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="5px"
+            android:layout_marginHorizontal="10px"
+            android:visibility="@{field.numOfMonsters >= 4 ? View.VISIBLE : View.GONE}"/>
+
+        <include
+            layout="@layout/card"
+            bind:card="@{field.numOfMonsters >= 5 ? field.getMonster(5) : null}"
+            bind:showCard="@{true}"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="5px"
+            android:layout_marginHorizontal="10px"
+            android:visibility="@{field.numOfMonsters >= 5 ? View.VISIBLE : View.GONE}"/>
+
+    </LinearLayout>
+</layout>

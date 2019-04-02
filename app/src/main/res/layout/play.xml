@@ -51,6 +51,7 @@
                 android:layout_centerHorizontal="true" />
 
             <Button
+                android:id="@+id/endTurn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -107,6 +108,28 @@
                 android:layout_toLeftOf="@id/currentPlayer"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"/>
+
+            <include
+                android:id="@+id/opponentPlayerField"
+                layout="@layout/field"
+                bind:field="@{gameConsole.opponentPlayer.field}"
+                android:layout_width="0px"
+                android:layout_height="250px"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@id/opponentPlayerDeck"
+                android:layout_below="@id/opponentPlayerHand"
+                android:layout_margin="30px"/>
+
+            <include
+                android:id="@+id/currentPlayerField"
+                layout="@layout/field"
+                bind:field="@{gameConsole.currentPlayer.field}"
+                android:layout_width="0px"
+                android:layout_height="250px"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@id/currentPlayerDeck"
+                android:layout_above="@id/currentPlayerHand"
+                android:layout_margin="30px"/>
 
             <include
                 android:id="@+id/cardPreview"

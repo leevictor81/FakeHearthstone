@@ -12,6 +12,7 @@ import com.example.victorlee.fakehearthstone.backend.cards.AllCards;
 import com.example.victorlee.fakehearthstone.backend.cards.Card;
 import com.example.victorlee.fakehearthstone.backend.GameConsole;
 import com.example.victorlee.fakehearthstone.backend.Player;
+import com.example.victorlee.fakehearthstone.backend.cards.monsters.BaseMonster;
 import com.example.victorlee.fakehearthstone.databinding.PlayBinding;
 import com.example.victorlee.fakehearthstone.frontend.Listeners.CardHoverListener;
 import com.example.victorlee.fakehearthstone.frontend.Listeners.DeckHoverListener;
@@ -47,6 +48,13 @@ public class Play extends AppCompatActivity {
         Map<String, Card> allCards = AllCards.getAllCards();
         addToDeck(allCards, currentPlayerDeck);
         addToDeck(allCards, opponentPlayerDeck);
+
+        try {
+            BaseMonster fireElemental = (BaseMonster) allCards.get("Fire Elemental");
+            BaseMonster airElemental = (BaseMonster) allCards.get("Air Elemental");
+            currentPlayer.getField().summon(fireElemental);
+            currentPlayer.getField().summon(airElemental);
+        } catch (Exception e) {}
 
         gameConsole.start(currentPlayerDeck, opponentPlayerDeck);
 
@@ -101,7 +109,12 @@ public class Play extends AppCompatActivity {
         LinearLayout hand = findViewById(R.id.currentPlayerHand);
         for (int i = 0; i < hand.getChildCount(); i++) {
             View card = hand.getChildAt(i);
-            card.setOnTouchListener(new CardHoverListener(findViewById(R.id.play), gameConsole, i+1));
+            card.setOnTouchListener(new CardHoverListener(findViewById(R.id.play), gameConsole, i+1, true));
+        }
+        LinearLayout field = findViewById(R.id.currentPlayerField);
+        for (int i = 0; i < field.getChildCount(); i++) {
+            View card = field.getChildAt(i);
+            card.setOnTouchListener(new CardHoverListener(findViewById(R.id.play), gameConsole, i+1, false));
         }
     }
 

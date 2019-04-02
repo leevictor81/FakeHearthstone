@@ -11,17 +11,21 @@ import com.example.victorlee.fakehearthstone.backend.cards.Card;
 public class CardHoverListener implements View.OnTouchListener {
     private View playView;
     private GameConsole gameConsole;
-    private int handIndex;
+    private int index;
+    private boolean hand;
 
-    public CardHoverListener(View playView, GameConsole gameConsole, int handIndex) {
+    public CardHoverListener(View playView, GameConsole gameConsole, int index, boolean hand) {
         this.playView = playView;
         this.gameConsole = gameConsole;
-        this.handIndex = handIndex;
+        this.index = index;
+        this.hand = hand;
     }
 
     public boolean onTouch(View v, MotionEvent motionEvent) {
         if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-            Card card = gameConsole.getCurrentPlayer().getHand().getCard(handIndex);
+            Card card = hand
+                    ? gameConsole.getCurrentPlayer().getHand().getCard(index)
+                    : gameConsole.getCurrentPlayer().getField().getMonster(index);
             gameConsole.setCardPreview(card);
             playView.findViewById(R.id.cardPreview).setVisibility(View.VISIBLE);
             return true;

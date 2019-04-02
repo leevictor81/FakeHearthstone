@@ -1,5 +1,9 @@
 package com.example.victorlee.fakehearthstone.backend;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+import com.android.databinding.library.baseAdapters.BR;
 import com.example.victorlee.fakehearthstone.backend.cards.Enchantments.Enchantment;
 import com.example.victorlee.fakehearthstone.backend.cards.Monster;
 import com.example.victorlee.fakehearthstone.backend.Exceptions.FieldMaxException;
@@ -12,7 +16,7 @@ import java.util.List;
  * Created by Victor Lee on 6/16/2018.
  */
 
-public class Field {
+public class Field extends BaseObservable {
     private static final int MAX_MONTERS_ON_FIELD = 5;
 
     private List<Monster> monsters;
@@ -23,8 +27,22 @@ public class Field {
         this.numOfMonsters = 0;
     }
 
+    @Bindable
     public int getNumOfMonsters() {
         return numOfMonsters;
+    }
+
+    public void setNumOfMonsters(int numOfMonsters) {
+        this.numOfMonsters = numOfMonsters;
+        notifyPropertyChanged(BR.numOfMonsters);
+    }
+
+    public Monster getMonster(int fieldIndex) {
+        if (fieldIndex > numOfMonsters) {
+            System.out.println("Invalid field index.");
+        }
+
+        return monsters.get(fieldIndex-1);
     }
 
     public int getAMonstersAttack(int fieldIndex) throws InvalidIndex {
@@ -75,7 +93,7 @@ public class Field {
         }
 
         monsters.add(numOfMonsters, monster);
-        numOfMonsters++;
+        setNumOfMonsters(numOfMonsters+1);
     }
 
     public void changeStats(int fieldIndex, int attackChange, int defenseChange) throws InvalidIndex {
@@ -101,7 +119,7 @@ public class Field {
     public Monster removeFromField(int fieldIndex) throws InvalidIndex {
         checkIfValidFieldIndex(fieldIndex);
         Monster removed = monsters.remove(fieldIndex-1);
-        numOfMonsters--;
+        setNumOfMonsters(numOfMonsters-1);
         return removed;
     }
 
